@@ -1,5 +1,6 @@
 package daw;
 
+import java.util.Arrays;
 import javax.swing.JOptionPane;
 
 /**
@@ -14,7 +15,8 @@ public class Ej1 {
         mostrarArrayNumeroPalabras(arrayNumeroPalabras);
         JOptionPane.showMessageDialog(null, palabrasTresVocales(arrayNumeroPalabras));
         JOptionPane.showMessageDialog(null, palabrasDosVocales(arrayNumeroPalabras));
-
+        String aux = Arrays.toString(arrayConNumeroPosicion(arrayNumeroPalabras, 'e'));
+        JOptionPane.showMessageDialog(null, aux);
     }
 
     public static int numeroPalabrasInicial() {
@@ -58,11 +60,11 @@ public class Ej1 {
         int aux = 0;
 
         for (int i = 0; i < palabras.length(); i++) {
-            if (palabras.charAt(i) == 'a' 
-                || palabras.charAt(i) == 'e' 
-                || palabras.charAt(i) == 'i' 
-                || palabras.charAt(i) == 'o' 
-                || palabras.charAt(i) == 'u') {
+            if (palabras.charAt(i) == 'a'
+                    || palabras.charAt(i) == 'e'
+                    || palabras.charAt(i) == 'i'
+                    || palabras.charAt(i) == 'o'
+                    || palabras.charAt(i) == 'u') {
                 aux++;
             }
         }
@@ -112,5 +114,27 @@ public class Ej1 {
         }
 
         return arrayFinal;
+    }
+
+    public static int posicionLetras(String palabra, char letra) {
+        int posicion = -1;
+        for (int i = 0; i < palabra.length(); i++) {
+            if (palabra.charAt(i) == letra) {
+                posicion = i;
+            }
+        }
+        return posicion;
+    }
+
+    public static int[] arrayConNumeroPosicion(String[] miarray, char letra) {
+
+        int[] arrayEnteros = new int[miarray.length];
+        int j = 0;
+        
+        for (int i = 0; i < miarray.length; i++) {
+            arrayEnteros[i] = posicionLetras(miarray[j], letra);
+            j++;
+        }
+        return arrayEnteros;
     }
 }
