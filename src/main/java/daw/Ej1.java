@@ -121,6 +121,7 @@ public class Ej1 {
         for (int i = 0; i < palabra.length(); i++) {
             if (palabra.charAt(i) == letra) {
                 posicion = i;
+                break;
             }
         }
         return posicion;
@@ -130,7 +131,7 @@ public class Ej1 {
 
         int[] arrayEnteros = new int[miarray.length];
         int j = 0;
-        
+
         for (int i = 0; i < miarray.length; i++) {
             arrayEnteros[i] = posicionLetras(miarray[j], letra);
             j++;
